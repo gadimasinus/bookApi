@@ -28,6 +28,19 @@ bookRouter.route('/books').get(function(req, res){
         });
 });
 
+
+bookRouter.route('/books/:bookId').get(function(req,res){
+    book.findById(req.params.bookId,function(err,book){
+            if(err){
+                res.status(500).send(err);
+            }
+            else
+            {
+                res.json(book);
+            }
+    })
+})
+
 app.use('/api',bookRouter);
 
 
