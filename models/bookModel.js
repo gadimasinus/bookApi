@@ -6,7 +6,7 @@ var bookModel = mongoose.Schema({
         type : String
     },
     author : {type : String},
-    genra : {type : String},
+    genre : {type : String},
     read : {type : Boolean, default : false}
 });
 
