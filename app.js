@@ -1,11 +1,15 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var swaggerUi = require('swagger-ui-express');
+
 
 var app = express();
 
 var port = process.env.port || 3000;
 
+ var swaggerDocument = require('./swagger.json');
+ app.use('/apidocs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 var db = mongoose.connect('mongodb://localhost/bookAPI',{useMongoClient :true});

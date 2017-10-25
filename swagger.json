@@ -1,0 +1,63 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Simple NodeJs book api  ",
+        "description": "Simple NodeJs book api  "
+    },
+    "host": "localhost:8000",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/books": {
+            "get": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Get all books in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Books"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Book": {
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "title": {
+                    "type": "string"
+                },
+                "genre": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "read": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Books": {
+            "type": "array",
+            "$ref": "#/definitions/Book"
+        }
+    }
+}
